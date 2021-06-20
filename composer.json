@@ -9,16 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
-        "apility/laravel-fcm": "^1.4",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-        "laravelcollective/html": "^6.2",
         "mcamara/laravel-localization": "^1.6",
-        "pusher/pusher-php-server": "^4.1",
         "spatie/laravel-permission": "^4.2",
         "tymon/jwt-auth": "^1.0"
     },
