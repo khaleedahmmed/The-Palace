@@ -92,7 +92,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::where('isAdmin','!=', 1)->find($id)
+        $user = User::where('isAdmin','!=', 1)->find($id);
         if(!$user){
             return $this->error('This user is not found');
          }

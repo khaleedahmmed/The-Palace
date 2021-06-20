@@ -29,20 +29,23 @@ Route::group(['middleware' =>'api', 'namespace' => 'Api'], function () {
 
     //user crud
    // Route::apiResource('users', 'UserController');
-    Route::get('users','UserController@index') ;
-    Route::post('users','UserController@store') ;
-    Route::delete('users/{user}','UserController@destroy') ;
-    Route::get('users/{user}','UserController@show') ;
+   Route::group(['middleware' =>'admin'],function (){
+
+    Route::get('users','UserController@index'); 
     Route::post('users/{user}','UserController@update') ;
+    Route::get('users/{user}','UserController@show') ;
+
+    Route::post('users','UserController@store')->middleware('can:user-create');
+    Route::delete('users/{user}','UserController@destroy')->middleware('can:user-destroy');
 
     //admin crud
    // Route::apiResource('users', 'AdminController');
-    Route::get('admins','AdminController@index') ;
-    Route::delete('admins/{admin}','AdminController@destroy') ;
-    Route::get('admins/{admin}','AdminController@show') ;
-    Route::post('admins/{admin}','AdminController@update') ;
-    Route::post('admins/{admin}/make-admin','AdminController@makeAdmin') ;
-
+    Route::get('admins','AdminController@index')->middleware('can:admin-index');
+    Route::delete('admins/{admin}','AdminController@destroy')->middleware('can:admin-destroy');
+    Route::get('admins/{admin}','AdminController@show')->middleware('can:admin-show');
+    Route::post('admins/{admin}','AdminController@update')->middleware('can:admin-update');
+    Route::post('admins/{admin}/make-admin','AdminController@makeAdmin')->middleware('can:make-admin');
+});
 
     
 

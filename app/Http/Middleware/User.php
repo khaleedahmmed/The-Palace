@@ -20,6 +20,7 @@ class User extends BaseMiddleware
      */
     public function handle($request, Closure $next)
     {
+      
         try {
               $user = JWTAuth::parseToken()->authenticate();
           } catch (TokenExpiredException $e) {

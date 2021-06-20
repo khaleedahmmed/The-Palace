@@ -20,10 +20,21 @@ class Admin extends BaseMiddleware
      */
     public function handle($request, Closure $next)
     {
+    try {
        $admin = JWTAuth::parseToken()->authenticate();
            if($admin->isAdmin==0) {
             return  $this->error('unauthenticated user');
           }
-            return $next($request);
+          
+          } 
+          catch (TokenExpiredException $e) {
+            return  $this->error('unauthenticated user');
+          } 
+          catch (JWTException $e) {
+      
+            return  $this->error('unauthenticated user');
+          }
+          return $next($request); 
     }
+
 }
