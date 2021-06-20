@@ -10,5 +10,5 @@
 - Run ```$php artisan key:generate```
 - Run ```$php artisan migrate --seed```
 - Run ```$php artisan serve```
-- 
+ 
 ### Thank you
