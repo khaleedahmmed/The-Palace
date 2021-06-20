@@ -17,7 +17,6 @@ class ProfileController extends Controller
 
     public function index()
     {
-       
            return $this->response(auth()->user());  
      }
 
