@@ -1,4 +1,4 @@
-# The plalce task
+# The palace task
 ## _There is two branches here one the project with docker and the other is only the laravel project_
 
 ## Run The Task
